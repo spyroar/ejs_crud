@@ -1,7 +1,7 @@
 <%- include('./base/header.ejs') %>
 <div class="container">
   <div class="alert bg-success mt-3">
-    <h4 class="text-center">Create New Account</h4>
+    <h4 class="text-center">Update your records</h4>
   </div>
 </div>
 
@@ -9,13 +9,14 @@
   <div class="row">
     <div class="col"></div>
     <div class="col">
-      <form action="" method="POST">
+      <form action="/update/<%= records._id %>" method="POST">
         <div class="filed my-3">
           <label for="" class="form-label">Name</label>
           <input
             type="text"
             class="form-control"
             name="name"
+            value="<%= records.name %>"
             placeholder="enter your name"
           />
         </div>
@@ -25,6 +26,7 @@
             type="text"
             class="form-control"
             name="city"
+            value="<%= records.city %>"
             placeholder="enter your city"
           />
         </div>
@@ -34,6 +36,7 @@
             type="email"
             class="form-control"
             name="email"
+            value="<%= records.email %>"
             placeholder="enter your email"
           />
         </div>
@@ -42,11 +45,12 @@
           <input
             type="number"
             class="form-control"
+            value="<%= records.phone_Number %>"
             name="phone_Number"
             placeholder="enter your phone number"
           />
         </div>
-        <input type="submit" value="Create" class="btn btn-warning w-100" />
+        <input type="submit" value="Update" class="btn btn-warning w-100" />
       </form>
     </div>
     <div class="col"></div>

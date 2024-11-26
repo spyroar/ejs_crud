@@ -1,0 +1,45 @@
+<%- include('./base/header.ejs') %>
+
+<div class="container my-3">
+  <div class="alert bg-warning">
+    <h4 class="text-center">All Recards</h4>
+  </div>
+</div>
+
+<div class="container">
+  <table class="table text-center">
+    <thead>
+      <tr>
+        <th>Name</th>
+        <th>Email</th>
+        <th>City</th>
+        <th>Contact</th>
+        <th>Edit</th>
+        <th>Delete</th>
+      </tr>
+    </thead>
+    <tbody>
+      
+        <% if(useraRecords){ %> 
+        <% for(let i=0;i<useraRecords.length;i++) { %>
+            <tr>>
+        <td><%= useraRecords[i].name %></td>
+        <td><%= useraRecords[i].email %></td>
+        <td><%= useraRecords[i].city %></td>
+        <td><%= useraRecords[i].phone_Number %></td>
+        <td>
+            <a href="/edit/<%= useraRecords[i]._id %>" class="btn btn-warning">edit</a>
+        </td>
+        <td>
+            <form action="/delete/<%= useraRecords[i]._id %>" action="POST">
+                <input type="submit" value="delete" class="btn btn-danger">
+            </form>
+        </td>
+        </tr
+        <% } %> <% } %>
+        
+    </tbody>
+  </table>
+</div>
+
+<%- include('./base/footer.ejs') %>
